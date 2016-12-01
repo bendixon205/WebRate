@@ -1,0 +1,10 @@
+<% if session[:flash] %>
+    <p><%= display_flash(:flash) %></p>
+<% end %>
+
+<form action="/user/create" method="post">
+  Username: <input type="text" name="name"/><br/>
+  Password: <input type="password" name="password"/><br/>
+  Confirm Password: <input type="password" name="password2"/><br/>
+  <input type="submit" value="signup"/>
+</form>

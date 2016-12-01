@@ -1,0 +1,18 @@
+<% if session[:flash] %>
+    <p><%= display_flash(:flash) %></p>
+<% end %>
+
+<% if !@user %>
+    <form action="/user/authenticate" method="post">
+      Username : <input type="text" name="name"/><br/>
+      Password : <input type="password" name="password"/><br/>
+      <input type="submit" value="Login"/>
+    </form>
+
+    <p><a href="/signup"> First time? Sign Up Now!</a></p>
+<% else %>
+    <p>Hello <%= @user.name %></p>
+    <form action="/user/logout" method="post">
+      <input type="submit" value="logout"/>
+    </form>
+<% end %>
