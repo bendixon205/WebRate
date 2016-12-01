@@ -54,7 +54,7 @@ helpers do
 	end
 	
 	def get_salt
-		randdompass= Random.new
+		randompass= Random.new
 		Array.new(User.salt.length){ randompass.rand(40...140).chr }.join
 	end
 	
