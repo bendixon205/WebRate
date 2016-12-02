@@ -123,7 +123,7 @@ post "/user/create" do
 	
 	salt = get_salt
 	hashed_password = hash_password(params[:password], salt)
-	user = User.new(:name => params[:name], :salt => salt,:hashed_password => hashed_password,)
+	user = User.new(:name => params[:name], :salt => salt,:hashed_password => hashed_password)
 	
 	if user.save
 		session[:flash] = "Great! You have Signed Up!"
