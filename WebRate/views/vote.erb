@@ -1,0 +1,72 @@
+<script>
+  function addSite (site_path) {
+      num_sites += 1;
+
+
+      var iframename = document.createElement('H2');
+      var t = document.createTextNode("Website "+num_sites);
+      iframename.appendChild(t);
+
+      var option = document.createElement('option');
+      t = document.createTextNode('Website ' + num_sites)
+      option.appendChild(t);
+
+      var form = document.getElementById('vote-1');
+      form.appendChild(option);
+      form = document.getElementById('vote-2');
+      form.appendChild(option);
+      form = document.getElementById('vote-3');
+      form.appendChild(option);
+      // to place before another page element
+
+      var iframe = document.createElement('iframe');
+      iframe.setAttribute('id', 'iframe'+num_sites); // assign an id
+      var el = document.getElementById('sites');
+      el.appendChild(iframename);
+      iframename.appendChild(iframe);
+
+      iframe.setAttribute('src', site_path);
+      iframe.setAttribute('height', '500');
+      iframe.setAttribute('width', '100%');
+  }
+
+  function addSites() {
+      if (sites.length != 0)
+      {
+          var element = document.getElementById("no-sites");
+          element.parentNode.removeChild(element);
+          sites.map(addSite);
+      }
+  }
+  num_sites = 0;
+  var sites = ['uploads/sites/Bootstrap/Bootstrap.html','uploads/sites/WebApps Midterm/benford.html',
+               'uploads/sites/Restaurant HTML/menu.html'];
+  //var sites = [];
+  window.onload = addSites;
+</script>
+
+<div class = "container">
+  <h2 id="no-sites">There are no websites uploaded yet :(</h2>
+
+  <form>
+    <div  class="col-xs-2">
+    <div class="form-group">
+      <label for="sel1">First Place:</label>
+      <select class="form-control" id="vote-1">
+
+      </select>
+      <label for="sel1">Second Place:</label>
+      <select class="form-control" id="vote-2">
+
+      </select>
+      <label for="sel1">Third Place:</label>
+      <select class="form-control" id="vote-3">
+
+      </select>
+    </div>
+    </div>
+  </form>
+  <br><br><br><br><br><br><br><br><br><br><br>
+
+  <div id="sites"></div>
+</div>
