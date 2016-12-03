@@ -2,6 +2,7 @@ require 'sinatra'
 require './zip-helper'
 require 'data_mapper'
 require 'digest/sha2'
+require 'csv'
 
 enable :sessions
 
@@ -28,10 +29,9 @@ class User
 
   property :id, Serial
   property :name, String
+  property :role, String
   property :salt, String, :length => 32
   property :hashed_password, String, :length => 64
-
-
 
   def authenticate(password)
     if (hash_password(password, salt)).eql?(hashed_password)
@@ -115,10 +115,30 @@ get '/upload' do
 end
 
 post '/upload' do
-  File.open('public/uploads/sites/' + params['sites'][:filename], 'w') do |f|
-    f.write(params['sites'][:tempfile].read)
+  if params.has_key?('users')
+    if params['users'][:type] == 'text/csv'
+      File.open('public/uploads/' + params['users'][:filename], 'w') do |f|
+        f.write(params['users'][:tempfile].read)
+      end
+      DataMapper.finalize
+      CSV.foreach('public/uploads/' + params['users'][:filename]) do |row|
+        salt = get_salt
+        salt.encode!('UTF-8', :invalid=>:replace, :undef=>:replace, :replace=>'?')
+        hashed_password = hash_password(row[1], salt)
+        puts row[0]
+        puts salt
+        puts hashed_password
+        puts row[2]
+        user = User.new(:name => row[0], :salt => salt, :hashed_password => hashed_password, :role => row[2])
+        user.save
+      end
+      DataMapper.auto_upgrade!
+    end
+  elsif params.has_key?('sites')
+    if params['sites'][:type] == 'application/zip'
+      unzip_file('public/uploads/sites/' + params['sites'][:filename], 'public/uploads/sites/')
+    end
   end
-  unzip_file('public/uploads/sites/' + params['sites'][:filename], 'public/uploads/sites/')
   erb :upload
 end
 
@@ -189,4 +209,4 @@ post "/user/create" do
 
 end
 
-DataMapper.auto_upgrade!
+#DataMapper.auto_upgrade!
