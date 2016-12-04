@@ -2,3 +2,4 @@ teacher,password,instructor
 student,password,student
 ta,password,instructor
 ben,password,student
+admin,admin,instructor
