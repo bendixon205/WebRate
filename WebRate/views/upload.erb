@@ -1,3 +1,8 @@
+<% if session[:flash] %>
+    <p><%= display_flash(:flash) %></p>
+<% end %>
+
+<% if @user.role == 'instructor' %>
 <div class="container">
   <!--<div class="alert alert-success alert-dismissable fade in">-->
     <!--<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>-->
@@ -11,10 +16,17 @@
     <input type="submit" value="Upload!">
   </form>
 
-  <h1>Instructors can upload websites here: </h1>
+  <h1>Upload websites here: </h1>
   <form method="post" enctype="multipart/form-data">
     <input type="file" name="sites" >
     <br>
     <input type="submit" value="Upload!">
   </form>
 </div>
+<% else %>
+<div class="container">
+  <h1>Unauthorized</h1>
+  <p>Only instructors and TA's may access this page. Please sign in.</p>
+  <p><a href="/login">Sign In.</a></p>
+</div>
+<% end %>
