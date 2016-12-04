@@ -68,7 +68,7 @@ helpers do
   end
 end
 
-get "/" do
+get '/' do
   if logged_in?
     @user = User.first(:hashed_password => session[:user])
   end
@@ -99,6 +99,9 @@ get '/logout' do
 end
 
 get '/account' do
+  if logged_in?
+    @user = User.first(:hashed_password => session[:user])
+  end
   erb :account
 end
 
@@ -111,6 +114,9 @@ get '/results' do
 end
 
 get '/upload' do
+  if logged_in?
+    @user = User.first(:hashed_password => session[:user])
+  end
   erb :upload
 end
 
@@ -125,10 +131,6 @@ post '/upload' do
         salt = get_salt
         salt.encode!('UTF-8', :invalid=>:replace, :undef=>:replace, :replace=>'?')
         hashed_password = hash_password(row[1], salt)
-        puts row[0]
-        puts salt
-        puts hashed_password
-        puts row[2]
         user = User.new(:name => row[0], :salt => salt, :hashed_password => hashed_password, :role => row[2])
         user.save
       end
@@ -147,12 +149,12 @@ not_found do
   erb :not_found
 end
 
-post "/user/authenticate" do
+post '/user/authenticate' do
   user = User.first(:name => params[:name])
 
   if !user
     session[:flash] = "User doesn't exist"
-    redirect "/login"
+    redirect '/login'
   end
 
   authenticated = user.authenticate(params[:password])
@@ -161,36 +163,36 @@ post "/user/authenticate" do
     if user.save
       session[:user] = user.hashed_password
     else
-      session[:flash] = "Sorry! Please try to Log in again!"
+      session[:flash] = 'Sorry! Please try to Log in again!'
     end
   else
-    session[:flash] = "Incorrect Password"
+    session[:flash] = 'Incorrect Password'
   end
 
-  redirect "/login"
+  redirect '/login'
 end
 
-post "/user/logout" do
+post '/user/logout' do
   session[:user] = nil
-  session[:flash] = "You are now logged out!"
-  redirect "/"
+  session[:flash] = 'You are now logged out!'
+  redirect '/'
 end
 
-get "/signup" do
+get '/signup' do
   erb :signup
 end
 
-post "/user/create" do
+post '/user/create' do
   user = User.first(:name => params[:name])
 
   if user
-    session[:flash] = "Username taken. Try  again!"
-    redirect "/signup"
+    session[:flash] = 'Username taken. Try  again!'
+    redirect '/signup'
   end
 
   if !params[:password].eql?(params[:password2])
-    session[:flash] = "Password Does Not Match!"
-    redirect "/signup"
+    session[:flash] = 'Password Does Not Match!'
+    redirect '/signup'
   end
 
   salt = get_salt
@@ -198,15 +200,13 @@ post "/user/create" do
   user = User.new(:name => params[:name], :salt => salt,:hashed_password => hashed_password,)
 
   if user.save
-    session[:flash] = "Great! You have Signed Up!"
+    session[:flash] = 'Great! You have Signed Up!'
     session[:user] = user.hashed_password
-    redirect "/signup"
+    redirect '/signup'
   else
-    session[:flash] = "Error Singing Up"
-    redirect "/signup"
+    session[:flash] = 'Error Singing Up'
+    redirect '/signup'
   end
 
 
 end
-
-#DataMapper.auto_upgrade!
