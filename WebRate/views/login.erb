@@ -1,5 +1,5 @@
 <div class = "container">
-  <div class="alert alert-success alert-dismissable fade in">
+  <div class="alert alert-success alert-dismissable fade in hidden">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <strong>Success!</strong> Login Successful
   </div>
@@ -11,10 +11,6 @@
 </div>
 
 <div class="container">
-    <% if session[:flash] %>
-        <p><%= display_flash(:flash) %></p>
-    <% end %>
-
     <% if !@user %>
         <!--<form action="/user/authenticate" method="post">-->
           <!--Username : <input type="text" name="name"/><br/>-->

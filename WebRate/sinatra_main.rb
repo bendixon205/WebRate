@@ -81,6 +81,10 @@ end
 #end
 
 get '/login' do
+  if logged_in?
+    @user = User.first(:hashed_password => session[:user])
+    redirect '/account'
+  end
   erb :login
 end
 
@@ -169,7 +173,7 @@ post '/user/authenticate' do
     session[:flash] = 'Incorrect Password'
   end
 
-  redirect '/login'
+  redirect '/account'
 end
 
 post '/user/logout' do
