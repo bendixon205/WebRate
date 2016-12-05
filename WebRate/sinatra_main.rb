@@ -4,8 +4,11 @@ require 'data_mapper'
 require 'digest/sha2'
 require './user-helper'
 require 'csv'
+require './vote-helper'
 
 enable :sessions
+DataMapper.finalize
+DataMapper.auto_upgrade!
 
 get '/' do
   if logged_in?
@@ -42,6 +45,10 @@ get '/vote' do
   erb :vote
 end
 
+post '/vote' do
+
+end
+
 get '/results' do
   if logged_in?
     @user = User.first(:hashed_password => session[:user])
@@ -62,7 +69,6 @@ post '/upload' do
       File.open('public/uploads/' + params['users'][:filename], 'w') do |f|
         f.write(params['users'][:tempfile].read)
       end
-      DataMapper.finalize
       CSV.foreach('public/uploads/' + params['users'][:filename]) do |row|
         salt = get_salt
         salt.encode!('UTF-8', :invalid=>:replace, :undef=>:replace, :replace=>'?')
