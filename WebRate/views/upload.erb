@@ -1,7 +1,3 @@
-<% if session[:flash] %>
-    <p><%= display_flash(:flash) %></p>
-<% end %>
-
 <% if @user%>
   <% if @user.role == 'instructor' %>
   <div class="container">

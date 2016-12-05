@@ -92,11 +92,17 @@ get '/account' do
 end
 
 get '/vote' do
+  if logged_in?
+    @user = User.first(:hashed_password => session[:user])
+  end
   @sites = create_sites_list
   erb :vote
 end
 
 get '/results' do
+  if logged_in?
+    @user = User.first(:hashed_password => session[:user])
+  end
   erb :results
 end
 
@@ -154,9 +160,11 @@ post '/user/authenticate' do
       session[:user] = user.hashed_password
     else
       session[:flash] = 'Sorry! Please try to Log in again!'
+      redirect '/login'
     end
   else
     session[:flash] = 'Incorrect Password'
+    redirect '/login'
   end
 
   redirect '/account'
@@ -170,33 +178,4 @@ end
 
 get '/signup' do
   erb :signup
-end
-
-post '/user/create' do
-  user = User.first(:name => params[:name])
-
-  if user
-    session[:flash] = 'Username taken. Try  again!'
-    redirect '/signup'
-  end
-
-  if !params[:password].eql?(params[:password2])
-    session[:flash] = 'Password Does Not Match!'
-    redirect '/signup'
-  end
-
-  salt = get_salt
-  hashed_password = hash_password(params[:password], salt)
-  user = User.new(:name => params[:name], :salt => salt,:hashed_password => hashed_password,)
-
-  if user.save
-    session[:flash] = 'Great! You have Signed Up!'
-    session[:user] = user.hashed_password
-    redirect '/signup'
-  else
-    session[:flash] = 'Error Singing Up'
-    redirect '/signup'
-  end
-
-
 end

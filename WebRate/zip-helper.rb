@@ -8,6 +8,11 @@ def unzip_file (file, destination)
       zip_file.extract(f, f_path) unless File.exist?(f_path)
     }
   }
+  begin
+    File.delete(file)
+  rescue
+    puts '#{file} not deleted'
+  end
   # Delete the Zip
 end
 
