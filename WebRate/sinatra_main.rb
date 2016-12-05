@@ -106,7 +106,11 @@ post '/upload' do
         salt.encode!('UTF-8', :invalid=>:replace, :undef=>:replace, :replace=>'?')
         hashed_password = hash_password(row[1], salt)
         user = User.new(:name => row[0], :salt => salt, :hashed_password => hashed_password, :role => row[2])
-        user.save
+        begin
+          user.save
+        rescue
+
+        end
       end
       DataMapper.auto_upgrade!
     end
