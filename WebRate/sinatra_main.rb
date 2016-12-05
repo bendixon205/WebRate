@@ -23,10 +23,6 @@ class User
   include DataMapper::Resource
   include PasswordHasher
 
-  #validations???? NOT SURE if we need it guy??
-  #CHECK Length of password
-  #Can't have same username
-
   property :id, Serial
   property :name, String
   property :role, String
@@ -75,11 +71,6 @@ get '/' do
   erb :home
 end
 
-# display the home layout
-#get '/' do
-#  erb :home
-#end
-
 get '/login' do
   if logged_in?
     @user = User.first(:hashed_password => session[:user])
@@ -87,15 +78,6 @@ get '/login' do
   end
   erb :login
 end
-
-# post '/login' do
-#   if params[:username] == settings.username && params[:password] == settings.password
-#     session[:admin] = true
-#     redirect to('/vote')
-#   else
-#     erb :vote
-#   end
-# end
 
 get '/logout' do
   session.clear
