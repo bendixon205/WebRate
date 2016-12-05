@@ -3,21 +3,54 @@
 </div>
 
 <% if @user %>
-  <% if @user.role == 'instructor' %>
-    <div class = "container">
-      <h2>Would you like to download/view the results? </h2>
-      <a href="/results/download" class="btn btn-primary">Download</a>
-    </div>
-  <% else %>
+    <% if @user.role == 'instructor' %>
+        <div class="container">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-3">
+                Name
+              </div>
+              <div class="col-sm-3">
+                Vote 1
+              </div>
+              <div class="col-sm-3">
+                Vote 2
+              </div>
+              <div class="col-sm-3">
+                Vote 3
+              </div>
+              <hr>
+            </div>
+            <% Vote.all.each do |s| %>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <%= s.name %>
+                  </div>
+                  <div class="col-sm-3">
+                    <%= s.vote1 %>
+                  </div>
+                  <div class="col-sm-3">
+                    <%= s.vote2 %>
+                  </div>
+                  <div class="col-sm-3">
+                    <%= s.vote3 %>
+                  </div>
+                </div>
+            <% end %>
+          </div>
+          <h2>Would you like to download/view the results? </h2>
+          <a href="/results/download" class="btn btn-primary">Download</a>
+        </div>
+    <% else %>
+        <div class="container">
+          <h2>Unauthorized</h2>
+          <p>Only instructors and TA's may access this page.</p>
+        </div>
+    <% end %>
+<% else %>
     <div class="container">
       <h2>Unauthorized</h2>
-      <p>Only instructors and TA's may access this page.</p>
+      <p>Only instructors and TA's may access this page. Please sign in.</p>
+      <a href="/login" class="btn btn-success">Login</a>
     </div>
-  <% end %>
-<% else %>
-  <div class="container">
-    <h2>Unauthorized</h2>
-    <p>Only instructors and TA's may access this page. Please sign in.</p>
-    <a href="/login" class="btn btn-success">Login</a>
-  </div>
 <% end %>

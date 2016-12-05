@@ -128,6 +128,8 @@ post '/user/logout' do
 end
 
 get '/results/download' do
+  
+
   headers['Content-Disposition'] = "attachment; filename = results.csv"
   send_file 'public/results/results.csv'
   redirect '/results'
