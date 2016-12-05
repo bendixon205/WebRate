@@ -71,32 +71,44 @@
   window.onload = addSites;
 </script>
 
-<div class = "container">
-  <h2 id="no-sites">There are no websites uploaded yet :(</h2>
-
-  <form method ="post" enctype="multipart/form-data">
-    <div  class="col-xs-2">
-    <div class="form-group">
-      <label for="vote-1">First Place:</label>
-      <select class="form-control" id="vote-1">
-
-      </select>
-      <label for="vote-2">Second Place:</label>
-      <select class="form-control" id="vote-2">
-
-      </select>
-      <label for="vote-3">Third Place:</label>
-      <select class="form-control" id="vote-3">
-
-      </select>
-      <br>
-      <input class="btn btn-primary" type="submit" value="Vote!">
-    </div>
-    </div>
-  </form>
+<div class="container">
+  <h1>Vote for Websites</h1>
 </div>
 
-<div class = "container">
-  <div id="sites"></div>
+<% if @user %>
+  <div class = "container">
+    <h2 id="no-sites">There are no websites uploaded yet :(</h2>
 
-</div>
+    <form method ="post" enctype="multipart/form-data">
+      <div  class="col-xs-2">
+      <div class="form-group">
+        <label for="vote-1">First Place:</label>
+        <select class="form-control" id="vote-1">
+
+        </select>
+        <label for="vote-2">Second Place:</label>
+        <select class="form-control" id="vote-2">
+
+        </select>
+        <label for="vote-3">Third Place:</label>
+        <select class="form-control" id="vote-3">
+
+        </select>
+        <br>
+        <input class="btn btn-primary" type="submit" value="Vote!">
+      </div>
+      </div>
+    </form>
+  </div>
+
+  <div class = "container">
+    <div id="sites"></div>
+
+  </div>
+<% else %>
+  <div class="container">
+    <h2>Not signed in.</h2>
+    <p>Only logged in members may access this page. Please sign in.</p>
+    <a href="/login" class="btn btn-success">Login</a>
+  </div>
+<% end %>

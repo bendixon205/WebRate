@@ -1,4 +1,23 @@
-<div class = "container">
-  <h1>Would you like to download/view the results? </h1>
-  <a href="/results/download" class="btn btn-primary">Download</a>
+<div class="container">
+  <h1>View Results</h1>
 </div>
+
+<% if @user %>
+  <% if @user.role %>
+    <div class = "container">
+      <h2>Would you like to download/view the results? </h2>
+      <a href="/results/download" class="btn btn-primary">Download</a>
+    </div>
+  <% else %>
+    <div class="container">
+      <h2>Unauthorized</h2>
+      <p>Only instructors and TA's may access this page.</p>
+    </div>
+  <% end %>
+<% else %>
+  <div class="container">
+    <h2>Unauthorized</h2>
+    <p>Only instructors and TA's may access this page. Please sign in.</p>
+    <a href="/login" class="btn btn-success">Login</a>
+  </div>
+<% end %>

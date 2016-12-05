@@ -1,5 +1,4 @@
 require 'sinatra'
-require 'sanitize'
 require './zip-helper'
 require 'data_mapper'
 require 'digest/sha2'
@@ -65,9 +64,6 @@ post '/upload' do
       end
       DataMapper.finalize
       CSV.foreach('public/uploads/' + params['users'][:filename]) do |row|
-        row.each do |item|
-          Sanitize.fragment(item)
-        end
         salt = get_salt
         salt.encode!('UTF-8', :invalid=>:replace, :undef=>:replace, :replace=>'?')
         hashed_password = hash_password(row[1], salt)
@@ -95,8 +91,6 @@ not_found do
 end
 
 post '/user/authenticate' do
-  Sanitize.fragment(params[:name])
-  Sanitize.fragment(params[:password])
   user = User.first(:name => params[:name])
 
   if !user
@@ -125,10 +119,6 @@ post '/user/logout' do
   session[:user] = nil
   session[:flash] = 'You are now logged out!'
   redirect '/'
-end
-
-get '/signup' do
-  erb :signup
 end
 
 get '/results/download' do

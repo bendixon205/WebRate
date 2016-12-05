@@ -1,17 +1,21 @@
+<div class="container">
+  <h1>Uploads</h1>
+</div>
+
 <% if @user %>
   <% if @user.role == 'instructor' %>
   <div class="container">
     <% if session[:flash] %>
         <p style="color:rgb(0,100,0);font-size: 2em;"><%= display_flash(:flash) %></p>
     <% end %>
-    <h1>Upload users here: </h1>
+    <h2>Upload users here: </h2>
     <form method="post" enctype="multipart/form-data">
       <input type="file" name="users" >
       <br>
       <input class="btn btn-primary" type="submit" value="Upload!">
     </form>
 
-    <h1>Upload websites here: </h1>
+    <h2>Upload websites here: </h2>
     <form method="post" enctype="multipart/form-data">
       <input type="file" name="sites" >
       <br>
@@ -20,13 +24,13 @@
   </div>
   <% else %>
   <div class="container">
-    <h1>Unauthorized</h1>
+    <h2>Unauthorized</h2>
     <p>Only instructors and TA's may access this page.</p>
   </div>
   <% end %>
 <% else %>
     <div class="container">
-      <h1>Unauthorized</h1>
+      <h2>Unauthorized</h2>
       <p>Only instructors and TA's may access this page. Please sign in.</p>
       <a href="/login" class="btn btn-success">Login</a>
     </div>
