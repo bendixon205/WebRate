@@ -143,6 +143,9 @@ post '/upload' do
     end
   elsif params.has_key?('sites')
     if params['sites'][:type] == 'application/zip'
+      File.open('public/uploads/sites/' + params['sites'][:filename], 'w') do |f|
+        f.write(params['sites'][:tempfile].read)
+      end
       unzip_file('public/uploads/sites/' + params['sites'][:filename], 'public/uploads/sites/')
     end
   end
