@@ -110,6 +110,7 @@ get '/account' do
 end
 
 get '/vote' do
+  @sites = create_sites_list
   erb :vote
 end
 
