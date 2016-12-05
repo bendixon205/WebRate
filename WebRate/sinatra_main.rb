@@ -46,7 +46,39 @@ get '/vote' do
 end
 
 post '/vote' do
+  if logged_in?
+    @user = User.first(:hashed_password => session[:user])
+  end
+  session[:flash] = ""
+  puts params
+  vote = Vote.first(:name => @user.name)
+  if vote
+    session[:flash] += "Error: vote already submitted. "
+  end
+  if params['vote-1'] == params['vote-2'] or params['vote-1'] == params['vote-2'] or params['vote-2'] == params['vote-3']
+    session[:flash] += "Error: cannot vote for the same site twice. "
+  end
+  if params['vote-1'].empty? or params['vote-2'].empty? or params['vote-3'].empty?
+    session[:flash] += "Error: must submit three votes. "
+  end
 
+  # if there is an error, redirect here, before submitting
+  if !session[:flash].empty?
+    redirect '/vote'
+  end
+
+  vote = Vote.new(:name => @user.name, :vote1 => params['vote-1'], :vote2 => params['vote-2'], :vote3 => params['vote-3'])
+
+  if vote.save
+    puts 'saved'
+    session[:flash] = "Your vote has been submitted"
+  else
+    puts 'not saved'
+    session[:flash] = "Error: vote could not be submitted"
+  end
+
+  DataMapper.auto_upgrade!
+  redirect '/vote'
 end
 
 get '/results' do

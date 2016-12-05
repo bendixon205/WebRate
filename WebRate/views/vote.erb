@@ -5,18 +5,21 @@
       //Form entry for First Place
       var option1 = document.createElement('option');
       option1.setAttribute('id', 'site' + num_sites + '-1'); // assign an id
+      option1.setAttribute('value', site_path);
       var t1 = document.createTextNode("Website "+num_sites);
       option1.appendChild(t1);
 
       //Form entry for Second Place
       var option2 = document.createElement('option');
       option2.setAttribute('id', 'site' + num_sites + '-2'); // assign an id
+      option2.setAttribute('value', site_path);
       var t2 = document.createTextNode("Website "+num_sites);
       option2.appendChild(t2);
 
       //Form entry for Third Place
       var option3 = document.createElement('option');
       option3.setAttribute('id', 'site' + num_sites + '-3'); // assign an id
+      option3.setAttribute('value', site_path);
       var t3 = document.createTextNode("Website "+num_sites);
       option3.appendChild(t3);
 
@@ -30,7 +33,7 @@
 
       //Create the iframe title
       var iframename = document.createElement('H2');
-      var t = document.createTextNode("Website "+num_sites);
+      var t = document.createTextNode('Website '+num_sites+' - "'+site_path.slice(14).slice(0,-5)+'"');
       iframename.appendChild(t);
 
       //Create the iframe and insert the site
@@ -78,21 +81,23 @@
 <% if @user %>
   <div class = "container">
     <h2 id="no-sites">There are no websites uploaded yet :(</h2>
-
-    <form action="/vote" method="post" enctype="multipart/form-data">
+    <% if session[:flash] %>
+        <p><%= display_flash(:flash) %></p>
+    <% end %>
+    <form action="/vote" method="post">
       <div  class="col-xs-2">
       <div class="form-group">
         <label for="vote-1">First Place:</label>
-        <select class="form-control" id="vote-1">
-
+        <select class="form-control" id="vote-1" name="vote-1">
+          <option selected="selected" value="" id="blank"></option>
         </select>
         <label for="vote-2">Second Place:</label>
-        <select class="form-control" id="vote-2">
-
+        <select class="form-control" id="vote-2" name="vote-2">
+          <option selected="selected" value="" id="blank"></option>
         </select>
         <label for="vote-3">Third Place:</label>
-        <select class="form-control" id="vote-3">
-
+        <select class="form-control" id="vote-3" name="vote-3">
+          <option selected="selected" value="" id="blank"></option>
         </select>
         <br>
         <input class="btn btn-primary" type="submit" value="Vote!">
