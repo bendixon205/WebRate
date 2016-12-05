@@ -11,9 +11,8 @@ def unzip_file (file, destination)
   begin
     File.delete(file)
   rescue
-    puts '#{file} not deleted'
+    puts "#{file} not deleted"
   end
-  # Delete the Zip
 end
 
 def create_sites_list
@@ -30,7 +29,3 @@ def create_sites_list
   end
   sites
 end
-
-sites = create_sites_list
-print sites
-puts 'Done'
