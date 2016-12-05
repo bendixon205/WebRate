@@ -14,7 +14,7 @@ end
 def create_sites_list
   sites = []
   Dir.foreach('public/uploads/sites') do |site|
-    next if site == '.' or site == '..'
+    next if site == '.' or site == '..' or File.extname(site) == '.zip'
     Dir.foreach('public/uploads/sites/'+site) do |item|
       next if item == '.' or item == '..'
       # do work on real items
