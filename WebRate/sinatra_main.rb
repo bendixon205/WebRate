@@ -128,7 +128,11 @@ post '/user/logout' do
 end
 
 get '/results/download' do
-  
+  CSV.open('public/results/results.csv', 'w') do |csv|
+    votes = Vote.all.each do |v|
+      csv << [v.name,v.vote1,v.vote2,v.vote3]
+    end
+  end
 
   headers['Content-Disposition'] = "attachment; filename = results.csv"
   send_file 'public/results/results.csv'
