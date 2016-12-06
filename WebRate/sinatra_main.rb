@@ -118,7 +118,7 @@ post '/upload' do
     session[:flash] = 'Upload successful!'
   elsif params.has_key?('sites')
     if params['sites'][:type] == 'application/zip' or params['sites'][:type] == 'application/octet-stream'
-      File.open('public/uploads/sites/' + params['sites'][:filename], 'w') do |f|
+      File.open('public/uploads/sites/' + params['sites'][:filename], 'wb') do |f|
         f.write(params['sites'][:tempfile].read)
       end
       unzip_file('public/uploads/sites/' + params['sites'][:filename], 'public/uploads/sites/')
