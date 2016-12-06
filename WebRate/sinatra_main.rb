@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sanitize'
 require './zip-helper'
 require 'data_mapper'
 require 'digest/sha2'
@@ -50,7 +51,9 @@ post '/vote' do
     @user = User.first(:hashed_password => session[:user])
   end
   session[:flash] = ""
-  puts params
+
+  Sanitize.clean params['vote-1'], params['vote-2'], params['vote-3']
+
   vote = Vote.first(:name => @user.name)
   if vote
     session[:flash] += "Error: vote already submitted. "
@@ -96,7 +99,6 @@ get '/upload' do
 end
 
 post '/upload' do
-  puts params
   if params.has_key?('users')
     if params['users'][:type] == 'text/csv' or params['users'][:type] == 'application/vnd.ms-excel'
       File.open('public/uploads/' + params['users'][:filename], 'wb') do |f|
@@ -134,6 +136,8 @@ not_found do
 end
 
 post '/user/authenticate' do
+  Sanitize.clean params[:name]
+  Sanitize.clean params[:password]
   user = User.first(:name => params[:name])
 
   if !user
