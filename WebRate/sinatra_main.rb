@@ -52,9 +52,9 @@ post '/vote' do
   end
   session[:flash] = ""
 
-  Sanitize.clean params['vote-1']
-  Sanitize.clean params['vote-2']
-  Sanitize.clean params['vote-3']
+  params['vote-1'] = Sanitize.clean params['vote-1']
+  params['vote-2'] = Sanitize.clean params['vote-2']
+  params['vote-3'] = Sanitize.clean params['vote-3']
 
   vote = Vote.first(:name => @user.name)
   if vote
@@ -108,7 +108,7 @@ post '/upload' do
       end
       CSV.foreach('public/uploads/' + params['users'][:filename]) do |row|
         row.each do |r|
-          Sanitize.clean r
+          r = Sanitize.clean r
         end
         salt = get_salt
         salt.encode!('UTF-8', :invalid=>:replace, :undef=>:replace, :replace=>'?')
@@ -141,8 +141,8 @@ not_found do
 end
 
 post '/user/authenticate' do
-  Sanitize.clean params[:name]
-  Sanitize.clean params[:password]
+  params[:name] = Sanitize.clean params[:name]
+  params[:password] = Sanitize.clean params[:password]
   user = User.first(:name => params[:name])
 
   if !user
