@@ -52,7 +52,9 @@ post '/vote' do
   end
   session[:flash] = ""
 
-  Sanitize.clean params['vote-1'], params['vote-2'], params['vote-3']
+  Sanitize.clean params['vote-1']
+  Sanitize.clean params['vote-2']
+  Sanitize.clean params['vote-3']
 
   vote = Vote.first(:name => @user.name)
   if vote
