@@ -105,6 +105,9 @@ post '/upload' do
         f.write(params['users'][:tempfile].read)
       end
       CSV.foreach('public/uploads/' + params['users'][:filename]) do |row|
+        row.each do |r|
+          Sanitize.clean r
+        end
         salt = get_salt
         salt.encode!('UTF-8', :invalid=>:replace, :undef=>:replace, :replace=>'?')
         hashed_password = hash_password(row[1], salt)
