@@ -96,9 +96,10 @@ get '/upload' do
 end
 
 post '/upload' do
+  puts params
   if params.has_key?('users')
-    if params['users'][:type] == 'text/csv'
-      File.open('public/uploads/' + params['users'][:filename], 'w') do |f|
+    if params['users'][:type] == 'text/csv' or params['users'][:type] == 'application/vnd.ms-excel'
+      File.open('public/uploads/' + params['users'][:filename], 'wb') do |f|
         f.write(params['users'][:tempfile].read)
       end
       CSV.foreach('public/uploads/' + params['users'][:filename]) do |row|
@@ -116,7 +117,7 @@ post '/upload' do
     end
     session[:flash] = 'Upload successful!'
   elsif params.has_key?('sites')
-    if params['sites'][:type] == 'application/zip'
+    if params['sites'][:type] == 'application/zip' or params['sites'][:type] == 'application/octet-stream'
       File.open('public/uploads/sites/' + params['sites'][:filename], 'w') do |f|
         f.write(params['sites'][:tempfile].read)
       end

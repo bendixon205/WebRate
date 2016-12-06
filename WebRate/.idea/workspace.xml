@@ -15,7 +15,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/WebRate@sinatra.coverage" NAME="sinatra Coverage Results" MODIFIED="1480462162979" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="WebRate" />
     <SUITE FILE_PATH="coverage/WebRate@zip_helper.coverage" NAME="zip-helper Coverage Results" MODIFIED="1480894375703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="WebRate" />
-    <SUITE FILE_PATH="coverage/WebRate@sinatra_main.coverage" NAME="sinatra_main Coverage Results" MODIFIED="1480890392196" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="WebRate" />
+    <SUITE FILE_PATH="coverage/WebRate@sinatra_main.coverage" NAME="sinatra_main Coverage Results" MODIFIED="1480980921136" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="WebRate" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -26,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="sinatra_main.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sinatra_main.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sinatra_main.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="112" column="28" lean-forward="false" selection-start-line="112" selection-start-column="28" selection-end-line="112" selection-end-column="28" />
+            <state relative-caret-position="238">
+              <caret line="101" column="67" lean-forward="false" selection-start-line="101" selection-start-column="67" selection-end-line="101" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -39,8 +39,8 @@
       <file leaf-file-name="zip-helper.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/zip-helper.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state relative-caret-position="187">
+              <caret line="11" column="16" lean-forward="true" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -49,28 +49,34 @@
       <file leaf-file-name="layout.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/layout.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+            <state relative-caret-position="850">
+              <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vote.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="vote.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/vote.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="55" column="49" lean-forward="false" selection-start-line="55" selection-start-column="49" selection-end-line="55" selection-end-column="49" />
-              <folding />
+            <state relative-caret-position="765">
+              <caret line="45" column="43" lean-forward="false" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
+              <folding>
+                <marker date="1480979171539" expanded="true" signature="3563:3580" ph="..." />
+                <marker date="1480979171539" expanded="true" signature="3563:3699" ph="..." />
+                <marker date="1480979171539" expanded="true" signature="3563:3983" ph="if ... end" />
+                <marker date="1480979171539" expanded="true" signature="3737:3774" ph="..." />
+                <marker date="1480979171539" expanded="true" signature="3811:3975" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="upload.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/upload.erb">
+      <file leaf-file-name="results.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/results.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="31" lean-forward="false" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+            <state relative-caret-position="85">
+              <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -80,7 +86,7 @@
         <entry file="file://$PROJECT_DIR$/views/home.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="8" column="250" lean-forward="false" selection-start-line="8" selection-start-column="250" selection-end-line="8" selection-end-column="250" />
+              <caret line="8" column="86" lean-forward="false" selection-start-line="8" selection-start-column="86" selection-end-line="8" selection-end-column="86" />
               <folding />
             </state>
           </provider>
@@ -133,10 +139,11 @@
         <option value="$PROJECT_DIR$/views/not_found.erb" />
         <option value="$PROJECT_DIR$/views/upload.erb" />
         <option value="$PROJECT_DIR$/views/home.erb" />
-        <option value="$PROJECT_DIR$/zip-helper.rb" />
-        <option value="$PROJECT_DIR$/sinatra_main.rb" />
         <option value="$PROJECT_DIR$/views/layout.erb" />
         <option value="$PROJECT_DIR$/views/vote.erb" />
+        <option value="$PROJECT_DIR$/zip-helper.rb" />
+        <option value="$PROJECT_DIR$/sinatra_main.rb" />
+        <option value="$PROJECT_DIR$/test_data/users.csv" />
       </list>
     </option>
   </component>
@@ -147,8 +154,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="176" />
-    <option name="y" value="197" />
+    <option name="x" value="266" />
+    <option name="y" value="47" />
     <option name="width" value="1533" />
     <option name="height" value="933" />
   </component>
@@ -168,7 +175,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -255,16 +261,31 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="uploads" />
+              <option name="myItemId" value="results" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebRate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebRate" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sites" />
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -287,7 +308,7 @@
       <recent name="C:\Users\Kryptic\Google Drive\Web Apps Design\WebRate" />
     </key>
   </component>
-  <component name="RunManager" selected="Ruby.zip-helper">
+  <component name="RunManager" selected="Ruby.sinatra_main">
     <configuration default="false" name="sinatra" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
       <module name="WebRate" />
       <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -460,8 +481,8 @@
     </list>
     <recent_temporary>
       <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Ruby.zip-helper" />
-        <item index="1" class="java.lang.String" itemvalue="Ruby.sinatra_main" />
+        <item index="0" class="java.lang.String" itemvalue="Ruby.sinatra_main" />
+        <item index="1" class="java.lang.String" itemvalue="Ruby.zip-helper" />
         <item index="2" class="java.lang.String" itemvalue="Ruby.sinatra" />
       </list>
     </recent_temporary>
@@ -488,22 +509,24 @@
       <workItem from="1480696391597" duration="14854000" />
       <workItem from="1480828868331" duration="2000" />
       <workItem from="1480890272606" duration="6111000" />
+      <workItem from="1480969470184" duration="1304000" />
+      <workItem from="1480970807773" duration="3357000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52056000" />
+    <option name="totallyTimeSpent" value="56717000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="176" y="197" width="1533" height="933" extended-state="0" />
+    <frame x="266" y="47" width="1533" height="933" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27155465" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20773931" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2140266" sideWeight="0.3299389" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.286578" sideWeight="0.33672777" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2140266" sideWeight="0.6700611" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.286578" sideWeight="0.66327226" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286517" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -614,7 +637,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="48" lean-forward="false" selection-start-line="1" selection-start-column="48" selection-end-line="1" selection-end-column="48" />
-          <folding />
+          <folding>
+            <marker date="1480979171539" expanded="true" signature="3563:3580" ph="..." />
+            <marker date="1480979171539" expanded="true" signature="3563:3699" ph="..." />
+            <marker date="1480979171539" expanded="true" signature="3563:3983" ph="if ... end" />
+            <marker date="1480979171539" expanded="true" signature="3737:3774" ph="..." />
+            <marker date="1480979171539" expanded="true" signature="3811:3975" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -683,7 +712,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="48" lean-forward="false" selection-start-line="1" selection-start-column="48" selection-end-line="1" selection-end-column="48" />
-          <folding />
+          <folding>
+            <marker date="1480979171539" expanded="true" signature="3563:3580" ph="..." />
+            <marker date="1480979171539" expanded="true" signature="3563:3699" ph="..." />
+            <marker date="1480979171539" expanded="true" signature="3563:3983" ph="if ... end" />
+            <marker date="1480979171539" expanded="true" signature="3737:3774" ph="..." />
+            <marker date="1480979171539" expanded="true" signature="3811:3975" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -763,20 +798,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/logout.erb" />
     <entry file="file://$PROJECT_DIR$/views/register.erb" />
-    <entry file="file://$PROJECT_DIR$/views/results.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="65" lean-forward="false" selection-start-line="2" selection-start-column="65" selection-end-line="2" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/uploads/users.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile'" />
     <entry file="file://$PROJECT_DIR$/public/uploads/sites/Bootstrap/Bootstrap.html" />
     <entry file="file://$PROJECT_DIR$/views/not_found.erb">
@@ -808,13 +829,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_data/users.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="22" lean-forward="true" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/login.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -825,7 +839,7 @@
     <entry file="file://$PROJECT_DIR$/views/upload.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="15" column="31" lean-forward="false" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+          <caret line="15" column="11" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -849,47 +863,70 @@
     <entry file="file://$PROJECT_DIR$/views/home.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="250" lean-forward="false" selection-start-line="8" selection-start-column="250" selection-end-line="8" selection-end-column="250" />
+          <caret line="8" column="86" lean-forward="false" selection-start-line="8" selection-start-column="86" selection-end-line="8" selection-end-column="86" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/signup.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sinatra_main.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="112" column="28" lean-forward="false" selection-start-line="112" selection-start-column="28" selection-end-line="112" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zip-helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/views/signup.erb" />
     <entry file="file://$PROJECT_DIR$/views/layout.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+        <state relative-caret-position="850">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/vote.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="55" column="49" lean-forward="false" selection-start-line="55" selection-start-column="49" selection-end-line="55" selection-end-column="49" />
+        <state relative-caret-position="765">
+          <caret line="45" column="43" lean-forward="false" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
+          <folding>
+            <marker date="1480979171539" expanded="true" signature="3563:3580" ph="..." />
+            <marker date="1480979171539" expanded="true" signature="3563:3699" ph="..." />
+            <marker date="1480979171539" expanded="true" signature="3563:3983" ph="if ... end" />
+            <marker date="1480979171539" expanded="true" signature="3737:3774" ph="..." />
+            <marker date="1480979171539" expanded="true" signature="3811:3975" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/results.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zip-helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="16" lean-forward="true" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_data/users.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/uploads/users.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sinatra_main.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="101" column="67" lean-forward="false" selection-start-line="101" selection-start-column="67" selection-end-line="101" selection-end-column="67" />
           <folding />
         </state>
       </provider>
